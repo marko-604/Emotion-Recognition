@@ -25,7 +25,7 @@ Images are stored in the `train/` directory, structured for use with PyTorch's `
 - Expanded to 4 convolutional layers.
 - Improved batch normalization and dropout values.
 - Additional data augmentation applied.
-- 
+
 ### Iteration 3
 - Kept 4 convolutional layers.
 - Removed data augmentation from iteration 2
