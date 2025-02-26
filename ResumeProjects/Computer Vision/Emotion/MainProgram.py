@@ -13,7 +13,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = EmotionCNN().to(device)
-model.load_state_dict(torch.load("Iteration1/emotion_model.pth", map_location=device))
+model.load_state_dict(torch.load("resnet50_emotion_model.pth", map_location=device))
 model.eval()
 
 emotion_labels = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
