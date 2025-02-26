@@ -1,7 +1,7 @@
 # LLM Powered Emotion Classification Using Custom & ResNet-50 Models
 
 ## Overview
-This project focuses on classifying human emotions using deep learning techniques. Initially, multiple custom CNN architectures were developed and tested before transitioning to a pre-trained ResNet-50 model for improved accuracy. The model is trained on a dataset of facial expressions categorized into seven classes. Additionally, an integrated LLM (Mistral via Ollama) is used to analyze and interpret detected emotions in after process completion, allowing deep behavioral insights.
+This project focuses on classifying human emotions using deep learning techniques. Initially, multiple custom CNN architectures were developed and tested before transitioning to a pre-trained ResNet-50 model for improved accuracy. The model is trained on a dataset of facial expressions categorized into seven classes. Additionally, an integrated LLM (Mistral via Ollama) is used to analyze and interpret detected emotions in after process completion, allowing deep behavioural insights.
 
 ## Dataset
 The dataset consists of images categorized into the following seven emotions:
@@ -48,6 +48,7 @@ Images are stored in the `train/` directory, structured for use with PyTorch's `
 - The LLM provides contextual insights based on the detected emotion, such as analyzing patterns or prompting the user with relevant questions.
 
 - Prompt to model: `prompt": f"Player intent: '{intent}'. Here is their emotion data during the desired event:\n{emotions}\n\nAnalyze how their emotions relate to intent.",
+
 ` Prompt to user: `player_intent = input("What are you about to do? ")`
 
 
