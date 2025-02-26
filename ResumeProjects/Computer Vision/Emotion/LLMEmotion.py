@@ -121,10 +121,10 @@ def query_llm(intent, emotions):
         url = "http://localhost:11434/api/generate"
         payload = {
             "model": "mistral",
-            "prompt": f"Player intent: '{intent}'. Here is their emotion data during gameplay:\n{emotions}\n\nAnalyze how emotions relate to the player's intent.",
+            "prompt": f"Player intent: '{intent}'. Here is their emotion data during the desired event:\n{emotions}\n\nAnalyze how their emotions relate to intent.",
             "stream": False
         }
-    elif llm_choice == "2":  # OpenAI GPT (Cloud API)
+    elif llm_choice == "2":  # OpenAI GPT
         url = "https://api.openai.com/v1/chat/completions"
         payload = {
             "model": "gpt-4",
@@ -150,7 +150,7 @@ llm_response = query_llm(player_intent, emotion_summary)
 print("\n--- LLM Analysis ---")
 print(llm_response)
 
-# Plot emotion duration
+# Plot emotion, overall durations
 plt.figure(figsize=(10, 6))
 plt.bar(emotion_times.keys(), [v / 60 for v in emotion_times.values()], color='orange')
 plt.xlabel('Emotion')
