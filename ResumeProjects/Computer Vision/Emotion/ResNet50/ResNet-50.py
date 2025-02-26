@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Define Paths
-data_dir = "train/"
+data_dir = "../train/"
 img_size = 224  # 224x224 images -- used by ResNet
 batch_size = 64
 
@@ -52,7 +52,7 @@ model.fc = nn.Sequential(
     nn.Dropout(0.4),
     nn.Linear(512, 7)  # 7 emotion classes
 )
-# Do with GPU not cpu
+# Do with GPU
 model = model.to(device)
 
 
@@ -88,7 +88,7 @@ for epoch in range(epochs):
     print(f"Epoch {epoch + 1}/{epochs}, Loss: {running_loss / len(train_loader):.4f}")
 
 # Save
-torch.save(model.state_dict(), "resnet50_emotion_model.pth")
+torch.save(model.state_dict(), "../resnet50_emotion_model.pth")
 print("Model training complete. Saved as resnet50_emotion_model.pth")
 
 

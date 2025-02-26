@@ -10,7 +10,7 @@ from torchvision.datasets import ImageFolder
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Define paths
-data_dir = "train/"
+data_dir = "../train/"
 img_size = 48
 batch_size = 64
 

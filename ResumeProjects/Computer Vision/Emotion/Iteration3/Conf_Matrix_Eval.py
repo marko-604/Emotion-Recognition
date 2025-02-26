@@ -23,7 +23,7 @@ transform = transforms.Compose([
 ])
 
 # Load the validation dataset
-data_dir = "train/"
+data_dir = "../train/"
 dataset = datasets.ImageFolder(root=data_dir, transform=transform)
 _, val_dataset = torch.utils.data.random_split(dataset, [int(0.8 * len(dataset)), len(dataset) - int(0.8 * len(dataset))])
 val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
@@ -66,7 +66,7 @@ class EmotionCNN(torch.nn.Module):
 
 # Load the trained model
 model = EmotionCNN().to(device)
-model.load_state_dict(torch.load("Iteration1/emotion_model.pth", map_location=device))
+model.load_state_dict(torch.load("../Iteration1/emotion_model.pth", map_location=device))
 model.eval()
 
 # Get predictions on the validation set

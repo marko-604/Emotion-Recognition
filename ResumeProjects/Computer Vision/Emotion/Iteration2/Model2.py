@@ -15,7 +15,7 @@ from torchvision.datasets import ImageFolder
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Define paths
-data_dir = "train/"
+data_dir = "../train/"
 img_size = 48
 batch_size = 64
 
@@ -113,7 +113,7 @@ for epoch in range(epochs):
     print(f"Epoch {epoch + 1}/{epochs}, Loss: {running_loss / len(train_loader):.4f}")
 
 # Save Model
-torch.save(model.state_dict(), "Iteration3/emotion_model_V3.pth")
+torch.save(model.state_dict(), "../Iteration3/emotion_model_V3.pth")
 print("Model training complete. Saved as emotion_model_V3.pth")
 
 
