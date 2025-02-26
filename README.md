@@ -108,6 +108,3 @@ The final model using ResNet-50 achieved a significant improvement in accuracy c
 - Increase dataset size for better generalization.
 - Experiment with deeper CNN architectures.
 - Fine-tune other pre-trained models like EfficientNet.
-
-## This project is for educational and research purposes only.
-
