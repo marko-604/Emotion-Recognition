@@ -1,7 +1,7 @@
-# Emotion Classification Using Custom & ResNet-50 Models
+# LLM Powered Emotion Classification Using Custom & ResNet-50 Models
 
 ## Overview
-This project focuses on classifying human emotions using deep learning techniques. Initially, multiple custom CNN architectures were developed and tested before transitioning to a pre-trained ResNet-50 model for improved accuracy. The model is trained on a dataset of facial expressions categorized into seven classes.
+This project focuses on classifying human emotions using deep learning techniques. Initially, multiple custom CNN architectures were developed and tested before transitioning to a pre-trained ResNet-50 model for improved accuracy. The model is trained on a dataset of facial expressions categorized into seven classes. Additionally, an integrated LLM (Mistral via Ollama) is used to analyze and interpret detected emotions in after process completion, allowing deep behavioral insights.
 
 ## Dataset
 The dataset consists of images categorized into the following seven emotions:
@@ -35,6 +35,21 @@ Images are stored in the `train/` directory, structured for use with PyTorch's `
 - Fine-tuned the final layers for emotion classification.
 - Optimized hyperparameters for improved performance.
 - Implemented learning rate scheduling and mixed precision training.
+
+
+### LLM Integration (Ollama + Mistral)
+
+- To enhance the application, an LLM (Mistral via Ollama) is integrated for real-time emotion interpretation. The workflow includes:
+
+- The model detects emotions from video input.
+
+- The detected emotion is sent to the local Mistral model running on Ollama.
+
+- The LLM provides contextual insights based on the detected emotion, such as analyzing patterns or prompting the user with relevant questions.
+
+- Prompt to model: `prompt": f"Player intent: '{intent}'. Here is their emotion data during the desired event:\n{emotions}\n\nAnalyze how their emotions relate to intent.",
+` Prompt to user: `player_intent = input("What are you about to do? ")`
+
 
 ## Implementation
 The main components of the project:
@@ -73,11 +88,17 @@ The final model using ResNet-50 achieved a significant improvement in accuracy c
    ```sh
    pip install -r requirements.txt
    ```
-3. Train the model & Evaluate & Generate confusion matrix:
+3. Start Ollama Server:
+  ```sh
+  ollama pull mistral
+  ollama serve
+  ```
+
+5. Train the model & Evaluate & Generate confusion matrix (if `resnet50_emotion_model.pth` is present... Skip Step:
    ```sh
    python ResNet-50.py
    ```
-4. Run the emotion recognition:
+6. Run the emotion recognition:
    ```sh
    python MainProgram.py
    ```
